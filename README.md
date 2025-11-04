@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# Ehtesham — Portfolio (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository is a personal portfolio built with Create React App. It demonstrates
+modern front-end features and a few small UI behaviours that make the site feel
+professional: responsive layout, theme toggle (dark/light), subtle animations,
+and a mock sign-in flow to demonstrate authenticated UI states.
 
-## Available Scripts
+This project is intended as a starting point you can customize with your own
+projects, images, and real authentication/back end.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- Componentized React UI: `Header`, `About`, `Projects`, `Contact`, `Footer`, `Login`
+- Theme toggle (persists to `localStorage`) — dark & light themes
+- Mock auth flow (client-only): sign in with a name/email to show a user pill and logout
+- Responsive project cards and simple animations (fade/slide/pop)
+- Accessible-ish HTML (improvements still recommended)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Quick start
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prerequisite: Node.js (16+ recommended) and npm installed.
 
-### `npm test`
+From the project root run:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```powershell
+npm install
+npm start
+```
 
-### `npm run build`
+Open http://localhost:3000 in your browser. The floating login card is at the
+bottom-right — use it to sign in and experiment with the logged-in header state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Build for production
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```powershell
+npm run build
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The production-ready files are written to the `build/` folder.
 
-### `npm run eject`
+## Deployment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This app was created with Create React App and can be deployed to GitHub Pages,
+Netlify, Vercel, or any static site host. For GitHub Pages, one simple approach:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Install the `gh-pages` package and add homepage/script entries to `package.json`.
+2. Run `npm run build` and `npm run deploy` (see CRA docs for details).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+I can help add a deploy script if you tell me where you'd like to host the site.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## How to customize
 
-## Learn More
+- Projects: edit `src/components/Projects.js` and replace the `SAMPLE_PROJECTS`
+	array with your own projects. Add image thumbnails in `public/` and link them.
+- Contact: update `src/components/Contact.js` with your real email and link URLs.
+- Auth: the current login is mocked and only stored in localStorage. If you want
+	a real authentication flow, tell me whether you prefer Firebase, Auth0,
+	NextAuth (for Next.js), or a custom Express + database solution and I'll
+	scaffold it.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Developer notes
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Theme and user state are stored in `localStorage` keys `pf_theme` and `pf_user`.
+- Styles are in `src/components/Portfolio.css` and basic app styles remain in `src/App.css`.
+- No new dependencies were added — the project uses the existing CRA stack.
 
-### Code Splitting
+## Next recommended improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Replace mock auth with real sign-in (OAuth, JWT, or provider of your choice).
+2. Add image assets and project detail pages (or a small API that serves projects).
+3. Improve accessibility (keyboard focus, aria attributes, form validation).
+4. Add unit/integration tests for critical components (`Login`, `Header`, `Projects`).
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If you'd like, I can now:
 
-### Making a Progressive Web App
+- run `npm start` locally and report any runtime issues, or
+- wire a real auth provider (tell me which one), or
+- populate the `Projects` list with your real project data and images.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Tell me which of the above you want next and I'll proceed.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

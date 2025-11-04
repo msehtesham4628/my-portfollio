@@ -1,0 +1,260 @@
+/* Basic portfolio styles (keeps small, dependency-free CSS) */
+:root{
+  --bg:#0f1724;
+  --muted:#94a3b8;
+  --accent:#60a5fa;
+  --card:#0b1220;
+}
+
+:root[data-theme="light"]{
+  --bg: #f8fafc;
+  --muted: #475569;
+  --accent: #0369a1;
+  --card: #ffffff;
+}
+.site-header{
+  background:linear-gradient(90deg,var(--bg),#1e293b);
+  color:#fff;
+  padding:12px 0;
+  box-shadow:0 2px 6px rgba(2,6,23,.5);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;max-width:1000px;margin:0 auto;padding:0 16px}
+.brand{margin:0;font-size:1.2rem}
+.nav a{color:var(--muted);margin-left:16px;text-decoration:none}
+.nav a:hover{color:var(--accent)}
+
+.site-main{max-width:1000px;margin:28px auto;padding:0 16px}
+.section{margin-bottom:48px}
+.container{max-width:880px}
+
+.about p{color:var(--muted);line-height:1.6}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:16px}
+.project-card{background:var(--card);padding:16px;border-radius:8px;color:#e6eef8;display:flex;align-items:flex-start;gap:12px}
+.project-thumb{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7dd3fc);display:flex;align-items:center;justify-content:center;font-size:28px}
+.project-body h4{margin:0 0 6px 0}
+.project-body p{margin:0 0 10px;color:var(--muted)}
+.btn{display:inline-block;padding:6px 10px;background:var(--accent);color:#02203a;border-radius:6px;text-decoration:none;font-weight:600}
+
+.contact a{color:var(--accent)}
+
+.site-footer{border-top:1px solid rgba(255,255,255,.03);padding:18px 0;margin-top:18px;color:var(--muted)}
+.footer-inner{max-width:1000px;margin:0 auto;padding:0 16px;text-align:center}
+
+/* Responsive tweaks */
+@media (max-width:520px){
+  .nav a{margin-left:10px;font-size:0.95rem}
+  .project-thumb{width:52px;height:52px}
+}
+
+/* Animations and small UI flourishes */
+.animated-fade{animation:fadeIn .45s ease both}
+.animated-pop{animation:popIn .28s cubic-bezier(.2,.9,.2,1) both}
+.animated-slideUp{animation:slideUp .45s ease both}
+
+@keyframes fadeIn{
+  from{opacity:0}
+  to{opacity:1}
+}
+
+@keyframes popIn{
+  0%{opacity:0;transform:scale(.95)}
+  100%{opacity:1;transform:scale(1)}
+}
+
+@keyframes slideUp{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* Login floating card */
+.login-fab{position:fixed;right:18px;bottom:18px;z-index:60}
+.login-card{width:220px;background:var(--card);color:inherit;padding:12px;border-radius:10px;box-shadow:0 8px 30px rgba(2,6,23,.45)}
+.login-card h4{margin:0 0 8px}
+.login-card label{display:block;font-size:.86rem;margin-bottom:8px}
+.login-card input{width:100%;padding:8px;border-radius:6px;border:1px solid rgba(0,0,0,.08);margin-top:6px;background:transparent;color:inherit}
+.login-actions{text-align:right}
+
+/* Header actions */
+.header-actions{display:flex;align-items:center;gap:8px}
+.btn-ghost{background:transparent;border:1px solid transparent;color:var(--muted);padding:6px 8px;border-radius:6px}
+.btn-ghost.small{Padding:4px 6px;font-size:.9rem}
+.user-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.03);padding:6px 8px;border-radius:999px}
+.user-name{font-weight:600}
+
+/* Theme specific overrides for header/footer readability */
+:root[data-theme="light"] .site-header{color:#07273b;background:linear-gradient(90deg,var(--bg),#e2e8f0)}
+:root[data-theme="light"] .site-footer{color:var(--muted);border-top-color:rgba(2,6,23,.06)}
+
+/* Hero */
+.section-hero{padding:36px 0}
+.hero-inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.hero-text{flex:1}
+.hero-title{font-size:clamp(1.6rem,3.6vw,2.6rem);margin:0 0 8px}
+.hero-sub{color:var(--muted);margin:0 0 16px}
+.hero-visual{width:280px;flex-shrink:0}
+.card-glow{background:linear-gradient(135deg, rgba(96,165,250,.12), rgba(125,211,252,.08));padding:18px;border-radius:14px;backdrop-filter:blur(4px)}
+.fake-screen{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,.02)}
+.dot-row{display:flex;gap:6px;margin-bottom:8px}
+.dot{width:10px;height:10px;border-radius:999px;display:inline-block}
+.dot.red{background:#fb7185}
+.dot.yellow{background:#fbbf24}
+.dot.green{background:#34d399}
+.lines{display:flex;flex-direction:column;gap:8px}
+.line{height:10px;background:linear-gradient(90deg, rgba(255,255,255,.06), rgba(255,255,255,.01));border-radius:6px}
+.line.short{width:60%}
+
+/* Skills */
+.skills-grid{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.skill-pill{background:linear-gradient(90deg, rgba(255,255,255,.03), rgba(255,255,255,.01));padding:8px 10px;border-radius:999px;color:var(--muted);font-weight:600}
+
+/* Services */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:14px}
+.service-card{background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,.03)}
+.service-card h4{margin:0 0 6px}
+
+/* Testimonials */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.testimonial-card{background:var(--card);padding:14px;border-radius:10px;border-left:4px solid var(--accent)}
+.testimonial-card p{margin:0 0 8px}
+
+/* Small responsive tweaks */
+@media (max-width:900px){
+  .hero-inner{flex-direction:column;align-items:flex-start}
+  .hero-visual{width:100%;max-width:360px}
+}
+
+/* Theme palettes: more aesthetic choices */
+:root[data-theme="midnight"]{
+  /* Force a deep black background and light text for the 'black' theme */
+  --bg: #000000; /* solid black */
+  --muted: #9fb3c8; /* slightly muted accent for secondary text */
+  --accent: #6ea8ff; /* brighter accent for buttons/links */
+  --card: rgba(255,255,255,0.02);
+  --text: #ffffff;
+  --glass: rgba(255,255,255,.03);
+}
+
+:root[data-theme="ocean"]{
+  --bg: linear-gradient(180deg,#04293a,#023e58);
+  --muted: #b7e0ff;
+  --accent: #2dd4bf;
+  --card: rgba(3,37,65,.7);
+  --text: #e6fbff;
+  --glass: rgba(255,255,255,.03);
+}
+
+:root[data-theme="solar"]{
+  --bg: linear-gradient(180deg,#fff7ed,#fff1e6);
+  --muted: #6b4226;
+  --accent: #fb923c;
+  --card: #fffaf0;
+  --text: #1f2937;
+  --glass: rgba(0,0,0,.03);
+}
+
+/* Make color changes smooth */
+.App,
+.site-header,
+.site-footer,
+.project-card,
+.service-card,
+.testimonial-card,
+.login-card,
+.fake-screen{
+  transition: background-color .35s ease, color .28s ease, border-color .28s ease, box-shadow .28s ease, transform .2s ease;
+}
+
+/* theme-select styling */
+.theme-select{background:transparent;border:1px solid rgba(255,255,255,.04);color:var(--muted);padding:6px 8px;border-radius:6px}
+.theme-select option{color:inherit}
+
+/* Background texture + subtle motion */
+.App{min-height:100vh;position:relative;overflow-x:hidden;color:var(--text)}
+.App{background:var(--bg);background-size:cover;background-repeat:no-repeat;background-position:center center}
+
+/* layered subtle overlays for depth */
+.App::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;mix-blend-mode:overlay;opacity:0.55;background-image:radial-gradient(circle at 10% 10%, rgba(96,165,250,0.06), transparent 10%), linear-gradient(180deg, rgba(255,255,255,0.02), transparent 40%)}
+
+/* SVG dot-pattern overlay (subtle texture) */
+.App::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;opacity:0.12;background-repeat:repeat;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 40 40'><defs><pattern id='p' patternUnits='userSpaceOnUse' width='40' height='40'><circle cx='20' cy='20' r='0.9' fill='rgba(255,255,255,0.12)'/></pattern></defs><rect width='100%' height='100%' fill='url(%23p)'/></svg>");mix-blend-mode:soft-light}
+
+/* subtle animated gradient sheen across the hero card */
+.card-glow{position:relative;overflow:hidden}
+.card-glow::after{content:"";position:absolute;inset:-30% -40% -30% -40%;background:linear-gradient(120deg, rgba(255,255,255,0.02), rgba(255,255,255,0.08), rgba(255,255,255,0.02));transform:rotate(-12deg);animation:sheen 6s linear infinite}
+
+@keyframes sheen{0%{transform:translateX(-100%) rotate(-12deg)}50%{transform:translateX(20%) rotate(-12deg)}100%{transform:translateX(140%) rotate(-12deg)}}
+
+/* floating effect for hero visual */
+.hero-visual .card-glow{animation:floaty 6s ease-in-out infinite}
+@keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-8px)}100%{transform:translateY(0)}}
+
+/* section backplates to lift content from background */
+.section{position:relative;z-index:10}
+.container{position:relative;z-index:12}
+
+/* slightly tinted cards for depth on dark/light themes */
+.project-card,.service-card,.testimonial-card{background-image:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 30px rgba(2,6,23,.35)}
+
+/* small parallax-like move when hovering hero visual */
+.hero-visual:hover .card-glow{transform:translateY(-6px) scale(1.01)}
+
+/* Debug panel */
+.debug-panel{position:fixed;left:12px;bottom:12px;background:var(--card);color:var(--text,inherit);padding:8px;border-radius:10px;box-shadow:0 6px 20px rgba(2,6,23,.4);z-index:999;max-width:320px}
+.debug-panel .debug-toggle{background:transparent;border:1px solid rgba(255,255,255,.04);padding:6px 8px;border-radius:6px;color:var(--muted);cursor:pointer}
+.debug-panel.open{width:320px}
+.debug-body{margin-top:8px;font-size:.85rem;color:var(--muted)}
+
+/* Solar system background styles */
+.solar-system{position:fixed;inset:0;pointer-events:none;z-index:0;display:block;opacity:0.7}
+.solar-system .sun{position:absolute;left:50%;top:50%;width:140px;height:140px;margin-left:-70px;margin-top:-70px;border-radius:50%;background:radial-gradient(circle at 30% 30%, rgba(255,210,120,0.5), rgba(255,140,50,0.55) 40%, rgba(255,90,20,0.45) 80%);box-shadow:0 0 120px rgba(255,140,40,.35), inset 0 8px 20px rgba(255,255,255,.03)}
+
+.orbit{position:absolute;left:50%;top:50%;transform-origin:center center;border-radius:50%}
+.orbit::before{content:"";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;}
+
+.orbit-1{width:220px;height:220px;margin-left:-110px;margin-top:-110px;animation:spin 6s linear infinite}
+.orbit-1::before{width:220px;height:220px;border:1px dashed rgba(255,255,255,.06)}
+.orbit-2{width:300px;height:300px;margin-left:-150px;margin-top:-150px;animation:spin 9s linear infinite}
+.orbit-2::before{width:300px;height:300px;border:1px dashed rgba(255,255,255,.06)}
+.orbit-3{width:380px;height:380px;margin-left:-190px;margin-top:-190px;animation:spin 12s linear infinite}
+.orbit-3::before{width:380px;height:380px;border:1px dashed rgba(255,255,255,.06)}
+.orbit-4{width:460px;height:460px;margin-left:-230px;margin-top:-230px;animation:spin 16s linear infinite}
+.orbit-4::before{width:460px;height:460px;border:1px dashed rgba(255,255,255,.05)}
+.orbit-5{width:580px;height:580px;margin-left:-290px;margin-top:-290px;animation:spin 40s linear infinite}
+.orbit-5::before{width:580px;height:580px;border:1px dashed rgba(255,255,255,.05)}
+.orbit-6{width:700px;height:700px;margin-left:-350px;margin-top:-350px;animation:spin 48s linear infinite}
+.orbit-6::before{width:700px;height:700px;border:1px dashed rgba(255,255,255,.04)}
+.orbit-7{width:820px;height:820px;margin-left:-410px;margin-top:-410px;animation:spin 80s linear infinite}
+.orbit-7::before{width:820px;height:820px;border:1px dashed rgba(255,255,255,.03)}
+.orbit-8{width:940px;height:940px;margin-left:-470px;margin-top:-470px;animation:spin 100s linear infinite}
+.orbit-8::before{width:940px;height:940px;border:1px dashed rgba(255,255,255,.03)}
+
+.planet{position:absolute;top:50%;left:100%;transform:translate(-50%,-50%);border-radius:50%;box-shadow:0 6px 18px rgba(2,6,23,.6), inset 0 2px 6px rgba(255,255,255,.02)}
+.planet.mercury{width:8px;height:8px;background:#bdb6a9}
+.planet.venus{width:14px;height:14px;background:#e8c07a}
+.planet.earth{width:16px;height:16px;background:linear-gradient(180deg,#6bb7ff,#2b9cff)}
+.planet.mars{width:12px;height:12px;background:#d96b5b}
+.planet.jupiter{width:36px;height:36px;background:linear-gradient(180deg,#f1c27d,#d98b4a)}
+.planet.saturn{width:30px;height:30px;background:linear-gradient(180deg,#f2d7b5,#c9a36a)}
+.planet.uranus{width:22px;height:22px;background:#9be3e8}
+.planet.neptune{width:22px;height:22px;background:#5ea0ff}
+
+.moon{position:absolute;left:100%;top:50%;width:6px;height:6px;background:#dedede;border-radius:50%;transform:translate(-50%,-50%)}
+.orbiting{animation:spin 1.6s linear infinite reverse}
+
+.ring{position:absolute;left:50%;top:50%;width:58px;height:24px;margin-left:-29px;margin-top:-12px;border-radius:50%;border:3px solid rgba(255,255,255,.18);transform:rotate(24deg)}
+
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+/* Ensure page content is above the solar background */
+.site-header,.site-main,.site-footer{position:relative;z-index:20}
+
+@media (max-width:900px){
+  .orbit-8,.orbit-7,.orbit-6{display:none}
+}
+
+
+
+
+
+
